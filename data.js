@@ -6,7 +6,7 @@ const list = [
   { id: 3, service: "Premium Subscription", serviceInfo: "Share with the World", price: 12.99,
     img: "https://creazilla-store.fra1.digitaloceanspaces.com/icons/3258730/ticket-icon-md.png", amount: 1 },
   { id: 4, service: "Social Media Sharing Subscription", serviceInfo: "Share your list", price: 2.99,
-    img: "https://cdn.creazilla.com/photos/3730387/social-media-1908766_1280-photo-md.jpeg", amount: 1 },
+    img: "https://creazilla-store.fra1.digitaloceanspaces.com/icons/3263159/social-media-icon-md.png", amount: 1 },
   { id: 5, service: "EZ Tech T-Shirt", serviceInfo: "Show your List to the World!!!", price: 25.99,
     img: "https://cdn.creazilla.com/cliparts/5548105/tie-dye-t-shirt-clipart-md.png", amount: 2000 },
   { id: 6, service: "EZ Techplosion", serviceInfo: "Share your List to all!!!", price: 25.99,
