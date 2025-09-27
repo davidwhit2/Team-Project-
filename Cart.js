@@ -1,8 +1,14 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 export default function CartPage() {
   const { items, total, updateQty, removeItem, clear } = useCart();
+  const navigate = useNavigate();
+
+  const goToCheckout = () => {
+    navigate("/checkout");
+  };
 
   return (
     <section className="container">
@@ -12,13 +18,19 @@ export default function CartPage() {
       ) : (
         <>
           <ul className="cart-list">
-            {items.map(i => (
+            {items.map((i) => (
               <li key={i.id} className="cart-item">
                 <div className="cart-main">
                   <img
                     src={i.img}
                     alt={i.title}
-                    style={{ width: "60px", height: "60px", objectFit: "cover", borderRadius: "8px", marginRight: "12px" }}
+                    style={{
+                      width: "60px",
+                      height: "60px",
+                      objectFit: "cover",
+                      borderRadius: "8px",
+                      marginRight: "12px",
+                    }}
                   />
                   <div>
                     <div className="title">
@@ -38,16 +50,22 @@ export default function CartPage() {
                       type="number"
                       min={1}
                       value={i.qty}
-                      onChange={e => updateQty(i.id, Number(e.target.value || 1))}
+                      onChange={(e) =>
+                        updateQty(i.id, Number(e.target.value || 1))
+                      }
                     />
                   </label>
-                  <button className="link danger" onClick={() => removeItem(i.id)}>
+                  <button
+                    className="link danger"
+                    onClick={() => removeItem(i.id)}
+                  >
                     Remove
                   </button>
                 </div>
               </li>
             ))}
           </ul>
+
           <div className="cart-footer">
             <div className="total">
               Total: <strong>${total.toFixed(2)}</strong>
@@ -56,7 +74,9 @@ export default function CartPage() {
               <button className="btn ghost" onClick={clear}>
                 Clear Cart
               </button>
-              <button className="btn">Checkout</button>
+              <button className="btn" onClick={goToCheckout}>
+                Proceed to Checkout
+              </button>
             </div>
           </div>
         </>
